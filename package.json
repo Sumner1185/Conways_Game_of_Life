@@ -1,0 +1,20 @@
+{
+  "name": "TDD-Conways-Game-of-Life",
+  "version": "1.0.0",
+  "description": "Conway's Game of Life",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require @bable/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sumner1185/Conways_Game_of_Life.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sumner1185/Conways_Game_of_Life/issues"
+  },
+  "homepage": "https://github.com/Sumner1185/Conways_Game_of_Life#readme"
+}
