@@ -22,12 +22,18 @@ export default class Game {
     const bottom = rowBelow[col];
     const bottomRight = rowBelow[col + 1];
 
+    const thisRow = this.state[row];
+
+    const left = thisRow[col - 1];
+    const right = thisRow[col + 1];
 
     return topLeft.state
      + top.state 
      + topRight.state
      + bottomLeft.state
      + bottom.state
-     + bottomRight.state;
+     + bottomRight.state
+     + left.state
+     + right.state;
   }
 }
