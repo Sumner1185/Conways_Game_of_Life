@@ -99,4 +99,26 @@ describe('Game of Life', () => {
     const numNeighbours = game.getNumOfAliveNeighbours(0, 1);
     expect(numNeighbours).to.equal(2);
   });
+
+  it('Should get the number of alive neighbours for a cell in the first column', () => {
+    const gameState = [
+      [ALIVE, ALIVE, DEAD],
+      [DEAD, DEAD, DEAD],
+      [DEAD, DEAD, DEAD],
+    ];
+    const game = new Game(gameState);
+    const numNeighbours = game.getNumOfAliveNeighbours(0, 0);
+    expect(numNeighbours).to.equal(1);
+  });
+
+  it('Should get the number of alive neighbours for a cell in the first column', () => {
+    const gameState = [
+      [DEAD, DEAD, DEAD],
+      [ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, DEAD],
+    ];
+    const game = new Game(gameState);
+    const numNeighbours = game.getNumOfAliveNeighbours(1, 0);
+    expect(numNeighbours).to.equal(0);
+  });
 });
