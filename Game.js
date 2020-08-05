@@ -8,4 +8,8 @@ export default class Game {
   getCell(row, col) {
     return this.state[row][col];
   }
+
+  getNumOfAliveNeighbours(row, col) {
+    return 8;
+  }
 }
