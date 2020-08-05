@@ -45,17 +45,6 @@ describe('Game of Life', () => {
     expect(deadCell.state).to.equal(gameState[1][1]);
   });
 
-  it('Should get the number of alive neighbours for a given cell', () => {
-    const gameState = [
-      [ALIVE, ALIVE, ALIVE],
-      [ALIVE, ALIVE, ALIVE],
-      [ALIVE, ALIVE, ALIVE],
-    ];
-    const game = new Game(gameState);
-    const numNeighbours = game.getNumOfAliveNeighbours(1, 1);
-    expect(numNeighbours).to.equal(8);
-  });
-
   it('Should get the number of alive neighbours above a given cell', () => {
     const gameState = [
       [ALIVE, ALIVE, ALIVE],
@@ -86,6 +75,28 @@ describe('Game of Life', () => {
     ];
     const game = new Game(gameState);
     const numNeighbours = game.getNumOfAliveNeighbours(1, 1);
+    expect(numNeighbours).to.equal(2);
+  });
+
+  it('Should get the number of alive neighbours for a given cell', () => {
+    const gameState = [
+      [ALIVE, ALIVE, ALIVE],
+      [ALIVE, ALIVE, ALIVE],
+      [ALIVE, ALIVE, ALIVE],
+    ];
+    const game = new Game(gameState);
+    const numNeighbours = game.getNumOfAliveNeighbours(1, 1);
+    expect(numNeighbours).to.equal(8);
+  });
+
+  it('Should get the number of alive neighbours for a cell in the top row', () => {
+    const gameState = [
+      [ALIVE, ALIVE, ALIVE],
+      [DEAD, DEAD, DEAD],
+      [DEAD, DEAD, DEAD],
+    ];
+    const game = new Game(gameState);
+    const numNeighbours = game.getNumOfAliveNeighbours(0, 1);
     expect(numNeighbours).to.equal(2);
   });
 });

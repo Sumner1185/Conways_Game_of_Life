@@ -11,11 +11,12 @@ export default class Game {
   }
 
   getNumOfAliveNeighbours(row, col) {
+    const edgeCell = new Cell(CellState.DEAD);
     const rowAbove = this.state[row - 1];
 
-    const topLeft = rowAbove[col - 1];
-    const top = rowAbove[col];
-    const topRight = rowAbove[col + 1];
+    const topLeft = row === 0 ? edgeCell : rowAbove[col - 1];
+    const top = row === 0 ? edgeCell : rowAbove[col];
+    const topRight = row === 0 ? edgeCell : rowAbove[col + 1];
 
     const rowBelow = this.state[row + 1];
 
