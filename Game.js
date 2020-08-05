@@ -3,6 +3,8 @@ import CellState from './CellState'
 
 export default class Game {
   constructor(state) {
+    this.numRows = state.length
+    this.numCols = state[0].length
     this.state = state.map(row => row.map(cellState => new Cell(cellState)));
   }
 
@@ -20,9 +22,9 @@ export default class Game {
 
     const rowBelow = this.state[row + 1];
 
-    const bottomLeft = (row === 0 || col === 0) ? edgeCell : rowBelow[col - 1];
-    const bottom = rowBelow[col];
-    const bottomRight = rowBelow[col + 1];
+    const bottomLeft = (col === 0 || row === this.numRows - 1) ? edgeCell : rowBelow[col - 1];
+    const bottom = row === this.numRows - 1 ? edgeCell : rowBelow[col];
+    const bottomRight = row === this.numRows - 1 ? edgeCell : rowBelow[col + 1];
 
     const thisRow = this.state[row];
 
