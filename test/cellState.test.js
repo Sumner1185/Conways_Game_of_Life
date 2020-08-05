@@ -1,7 +1,8 @@
 import { expect } from "chai"
+import CellState from '../CellState'
 
 describe('CellState', () => {
-  instanceof('Should have an ALIVE state', () => {
-    expect(CellState.ALIVE).to.be(1);
+  it('Should have an ALIVE state', () => {
+    expect(CellState.ALIVE).to.equal(1);
   })
 });
