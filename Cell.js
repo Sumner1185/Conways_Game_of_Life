@@ -8,7 +8,7 @@ export default class Cell {
   getNextState(numNeighbours) {
     if(this.state === CellState.ALIVE) {
       if (numNeighbours === 2 || numNeighbours === 3) {
-        return CellState.ALIVE;
+        return this.state;
       }
     } else if (numNeighbours === 3) {
         return CellState.ALIVE
