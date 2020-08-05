@@ -2,6 +2,9 @@ import CellState from "./CellState";
 
 export default class Cell {
   constructor(state) {
+    if (Object.values(CellState).indexOf(state) === -1) {
+      throw new Error('Invalid State')
+    }
     this.state = state;
   }
 

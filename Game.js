@@ -10,12 +10,24 @@ export default class Game {
   }
 
   getNumOfAliveNeighbours(row, col) {
-    const rowAbove = this.state[row -1];
-    
+    const rowAbove = this.state[row - 1];
+
     const topLeft = rowAbove[col - 1];
     const top = rowAbove[col];
     const topRight = rowAbove[col + 1];
 
-    return topLeft.state + top.state + topRight.state;
+    const rowBelow = this.state[row + 1];
+
+    const bottomLeft = rowBelow[col - 1];
+    const bottom = rowBelow[col];
+    const bottomRight = rowBelow[col + 1];
+
+
+    return topLeft.state
+     + top.state 
+     + topRight.state
+     + bottomLeft.state
+     + bottom.state
+     + bottomRight.state;
   }
 }
