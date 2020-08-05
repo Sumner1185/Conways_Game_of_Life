@@ -1,4 +1,5 @@
 import Cell from './Cell'
+import CellState from './CellState'
 
 export default class Game {
   constructor(state) {
@@ -27,13 +28,20 @@ export default class Game {
     const left = thisRow[col - 1];
     const right = thisRow[col + 1];
 
-    return topLeft.state
-     + top.state 
-     + topRight.state
-     + bottomLeft.state
-     + bottom.state
-     + bottomRight.state
-     + left.state
-     + right.state;
+    const stateValues = {
+      [CellState.ALIVE]: 1,
+      [CellState.DEAD]: 0,
+    }
+
+    return [
+      topLeft,
+      top,
+      topRight,
+      left,
+      right,
+      bottomLeft,
+      bottom,
+      bottomRight
+    ].reduce((sum, { state }) => sum + stateValues[state], 0);
   }
 }
