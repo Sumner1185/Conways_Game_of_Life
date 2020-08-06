@@ -174,7 +174,7 @@ describe('Game of Life', () => {
 
     const game = new Game(gameState);
 
-    game.nextState();
+    const nextState = game.nextState();
 
     const expectedState = [
       [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
@@ -184,6 +184,6 @@ describe('Game of Life', () => {
       [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
     ];
 
-    expect(game.state).to.deep.equal(expectedState)
+    expect(nextState).to.deep.equal(expectedState)
   });
 });
