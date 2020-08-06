@@ -24,12 +24,10 @@ export default class Game {
       cellRow.forEach((cell, colNum) => {
       if ((colNum === col - 1 && rowNum === row - 1)
         || (colNum === col && rowNum === row - 1)
-        || (colNum === col + 1 && rowNum === row - 1)) {
-          numNeighbours += stateValues[cell.state];
-        } else if ((colNum === col - 1 && rowNum === row)
-        || (colNum === col + 1 && rowNum === row)) {
-          numNeighbours += stateValues[cell.state];
-        } else if ((colNum === col - 1 && rowNum === row  + 1)
+        || (colNum === col + 1 && rowNum === row - 1)
+        || (colNum === col - 1 && rowNum === row)
+        || (colNum === col + 1 && rowNum === row)
+        || (colNum === col - 1 && rowNum === row  + 1)
         || (colNum === col && rowNum === row + 1)
         || (colNum === col + 1 && rowNum === row + 1)) {
           numNeighbours += stateValues[cell.state];
