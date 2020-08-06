@@ -162,4 +162,28 @@ describe('Game of Life', () => {
     const numNeighbours = game.getNumOfAliveNeighbours(4, 4);
     expect(numNeighbours).to.equal(8);
   });
+
+  it('Should create the next state of the game', () => {
+    const gameState = [
+      [DEAD, DEAD, DEAD, DEAD, DEAD],
+      [DEAD, DEAD, ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, DEAD, DEAD, DEAD],
+    ];
+
+    const game = new Game(gameState);
+
+    const nextState = game.getNextState();
+
+    const expectedState = [
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(ALIVE), new Cell(ALIVE), new Cell(ALIVE), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+    ];
+
+    expect(nextState).to.deep.equal(expectedState)
+  });
 });
