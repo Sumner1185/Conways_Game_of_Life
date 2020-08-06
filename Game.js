@@ -49,7 +49,7 @@ export default class Game {
     return numNeighbours;
   }
 
-  getNextState() {
-    return this.state.map((row, rowNum) => row.map((cell, colNum) => new Cell(cell.getNextState(this.getNumOfAliveNeighbours(rowNum, colNum)))))
+  nextState() {
+    this.state = this.state.map((row, rowNum) => row.map((cell, colNum) => new Cell(cell.getNextState(this.getNumOfAliveNeighbours(rowNum, colNum)))))
   }
 }
