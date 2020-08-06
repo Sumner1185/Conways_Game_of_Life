@@ -18,23 +18,34 @@ export default class Game {
       [CellState.DEAD]: 0,
     }
 
+    const cellAbove = (rowNum, colNum) => (
+      (colNum === col - 1 && rowNum === row - 1)
+      || (colNum === col && rowNum === row - 1)
+      || (colNum === col + 1 && rowNum === row - 1)
+    );
+
+    const cellBelow = (rowNum, colNum) => (
+      (colNum === col - 1 && rowNum === row  + 1)
+      || (colNum === col && rowNum === row + 1)
+      || (colNum === col + 1 && rowNum === row + 1)
+    );
+
+    const cellNextTo = (rowNum, colNum) => (
+      (colNum === col - 1 && rowNum === row)
+      || (colNum === col + 1 && rowNum === row)
+    );
+
     let numNeighbours = 0;
 
     this.state.forEach((cellRow, rowNum) => {
       cellRow.forEach((cell, colNum) => {
-      if ((colNum === col - 1 && rowNum === row - 1)
-        || (colNum === col && rowNum === row - 1)
-        || (colNum === col + 1 && rowNum === row - 1)
-        || (colNum === col - 1 && rowNum === row)
-        || (colNum === col + 1 && rowNum === row)
-        || (colNum === col - 1 && rowNum === row  + 1)
-        || (colNum === col && rowNum === row + 1)
-        || (colNum === col + 1 && rowNum === row + 1)) {
+      if (cellAbove(rowNum, colNum)
+        || cellNextTo(rowNum, colNum)
+        || cellBelow(rowNum, colNum)) {
           numNeighbours += stateValues[cell.state];
         }
       });
     });
-
     return numNeighbours;
   }
 }
